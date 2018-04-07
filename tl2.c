@@ -981,7 +981,7 @@ registerUseAfterFreeHandler ()
 {
     struct sigaction act;
 
-    memset(&act, sizeof(struct sigaction), 0);
+    memset(&act, 0, sizeof(struct sigaction));
     act.sa_sigaction = &useAfterFreeHandler;
     sigemptyset(&act.sa_mask);
     act.sa_flags = SA_RESTART | SA_SIGINFO;
